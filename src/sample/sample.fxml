@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <top>
+      <ToolBar fx:id="toolBar" prefHeight="40.0" prefWidth="200.0" styleClass="headers" stylesheets="@style.css" BorderPane.alignment="CENTER">
+         <items>
+            <HBox spacing="10.0">
+               <children>
+                  <Button id="bg-btn" mnemonicParsing="false" onAction="#onSettingsClicked" prefHeight="32.0" prefWidth="32.0" />
+                  <Button mnemonicParsing="false" onAction="#onSave" prefHeight="32.0" prefWidth="32.0" styleClass="save" stylesheets="@style.css">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#onLoad" prefHeight="32.0" prefWidth="32.0" styleClass="load" stylesheets="@style.css">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+                  <Button id="import" mnemonicParsing="false" onAction="#onImport" prefHeight="32.0" prefWidth="32.0" stylesheets="@style.css">
+                     <HBox.margin>
+                        <Insets right="-0.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button id="saveImage" mnemonicParsing="false" onAction="#onSaveImage" prefHeight="32.0" prefWidth="32.0">
+                     <HBox.margin>
+                        <Insets right="-10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Line fx:id="strokeLine11" endX="34.0" opacity="0.4" rotate="90.0" strokeLineCap="ROUND" strokeWidth="0.3" translateY="16.0" />
+                  <Button fx:id="undoBtn" disable="true" mnemonicParsing="false" onAction="#onUndoPressed" prefHeight="32.0" prefWidth="32.0" styleClass="undo" stylesheets="@style.css" />
+                  <Button fx:id="redoBtn" disable="true" mnemonicParsing="false" onAction="#onRedoPressed" prefHeight="32.0" prefWidth="32.0" styleClass="redo" stylesheets="@style.css" />
+                  <Button mnemonicParsing="false" onAction="#onErase" prefHeight="32.0" prefWidth="32.0" styleClass="erase" stylesheets="@style.css">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button id="removeLayer" mnemonicParsing="false" onAction="#onDeleteShape" prefHeight="32.0" prefWidth="32.0" stylesheets="@style.css">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+                  <Button id="copy" mnemonicParsing="false" onAction="#onCopy" prefHeight="32.0" prefWidth="32.0" />
+               </children>
+               <padding>
+                  <Insets right="30.0" top="3.0" />
+               </padding>
+            </HBox>
+            <HBox styleClass="layer" stylesheets="@style.css">
+               <children>
+                  <RadioButton fx:id="move" mnemonicParsing="false" onAction="#onControlBtnPressed" prefHeight="32.0" prefWidth="32.0" styleClass="move" stylesheets="@style.css">
+                     <padding>
+                        <Insets left="15.0" right="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="scale" mnemonicParsing="false" onAction="#onControlBtnPressed" prefHeight="32.0" prefWidth="32.0" styleClass="scale" stylesheets="@style.css">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </RadioButton>
+               </children>
+               <padding>
+                  <Insets top="2.0" />
+               </padding>
+            </HBox>
+            <Button fx:id="gridBtn" mnemonicParsing="false" onAction="#onGridChecked" prefHeight="32.0" prefWidth="32.0" styleClass="grid" stylesheets="@style.css" translateX="10.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Line fx:id="strokeLine1" endX="34.0" opacity="0.4" rotate="90.0" strokeLineCap="ROUND" strokeWidth="0.3" />
+            <Label text="Thickness" textFill="#72b5ba">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="thicknessField" alignment="CENTER" prefHeight="20.0" prefWidth="40.0" text="2">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font></TextField>
+            <HBox fx:id="nSideGroup" prefHeight="15.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="70.0" text="Side Count" textFill="#72b5ba">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="nSidesField" alignment="CENTER" prefHeight="20.0" prefWidth="40.0" text="5">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="15.0" top="7.0" />
+               </padding>
+            </HBox>
+         </items>
+         <padding>
+            <Insets left="10.0" />
+         </padding></ToolBar>
+   </top>
+   <bottom>
+      <HBox prefHeight="27.0" prefWidth="600.0" stylesheets="@style.css" BorderPane.alignment="CENTER" />
+   </bottom>
+   <left>
+      <ToolBar fx:id="shapeBar" orientation="VERTICAL" prefHeight="333.0" prefWidth="41.0" styleClass="mainTheme" stylesheets="@style.css" BorderPane.alignment="CENTER">
+         <items>
+            <Label fx:id="strokeLabel" text="Stroke" textFill="#72b5ba" translateX="2.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ColorPicker fx:id="strokeColor" cache="true" prefHeight="30.0" prefWidth="40.0" />
+            <Line fx:id="strokeLine" endX="40.0" opacity="0.4" strokeLineCap="ROUND" strokeWidth="0.3" />
+            <Label fx:id="fillLabel" text="Fill" textFill="#72b5ba" translateX="11.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ColorPicker fx:id="fillColor" cache="true" prefHeight="30.0" prefWidth="40.0" />
+            <Line fx:id="fillLine" endX="40.0" opacity="0.4" strokeLineCap="ROUND" strokeWidth="0.3" />
+         </items>
+      </ToolBar>
+   </left>
+   <center>
+      <ScrollPane fx:id="workingArea" focusTraversable="false" prefHeight="640.0" prefWidth="1020.0" styleClass="workingArea" stylesheets="@style.css" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <content>
+            <AnchorPane>
+               <children>
+                  <Pane fx:id="scene" prefHeight="500.0" prefWidth="800.0" styleClass="drawingArea" stylesheets="@style.css" translateX="-5.0" translateY="-5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Canvas fx:id="canvas" height="500.0" width="800.0" />
+                        <Canvas fx:id="previewCanvas" height="500.0" width="800.0" />
+                     </children></Pane>
+               </children>
+            </AnchorPane>
+         </content>
+         <padding>
+            <Insets bottom="5.0" left="10.0" right="5.0" top="10.0" />
+         </padding>
+      </ScrollPane>
+   </center>
+   <right>
+      <SplitPane id="rightMenu" dividerPositions="0.5" orientation="VERTICAL" prefHeight="333.0" prefWidth="298.0" styleClass="mainTheme" stylesheets="@style.css" BorderPane.alignment="CENTER">
+        <items>
+            <ScrollPane prefHeight="256.0" prefWidth="212.0" styleClass="themeBorderless" stylesheets="@style.css">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <Label text="PROPERTIES" textFill="#3b91a9" translateX="85.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <VBox fx:id="propVBox" layoutY="28.0" prefHeight="282.0" prefWidth="288.0" styleClass="menuBlock" stylesheets="@style.css" />
+                     </children>
+                  </AnchorPane>
+               </content>
+               <padding>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </padding>
+            </ScrollPane>
+            <ScrollPane prefHeight="256.0" prefWidth="212.0" styleClass="themeBorderless" stylesheets="@style.css">
+               <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="286.0" spacing="2.0" styleClass="themeBorderless" stylesheets="@style.css">
+                           <children>
+                              <Label text="LAYERS" textFill="#3b91a9">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="110.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                        <VBox fx:id="layerVBox" layoutY="30.0" prefHeight="280.0" prefWidth="288.0" styleClass="menuBlock" stylesheets="@style.css" />
+                     </children>
+                  </AnchorPane>
+               </content>
+               <padding>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </padding>
+            </ScrollPane>
+        </items>
+      </SplitPane>
+   </right>
+</BorderPane>

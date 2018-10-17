@@ -1,0 +1,17 @@
+.background {
+    -fx-background-color: #636363;
+}
+
+#dialog-button {
+    -fx-border-radius: 20;
+    -fx-background-color: #368adc;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.8) , 5, 0.0 , 0 , 2 );
+}
+
+#dialog-button:hover {
+    -fx-background-color: #469cdc;
+}
+
+#dialog-button:pressed {
+    -fx-background-color: #3e5ba8;
+}

@@ -1,0 +1,256 @@
+.mainTheme {
+    -fx-background-color: #636363;
+    -fx-border-width: 1;
+    -fx-border-color: #3a3a3a;
+}
+
+#rightMenu .split-pane-divider {
+    -fx-background-color: #3b91a9;
+    -fx-padding: 0 0.1em 0 0.1em;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.8) , 2, 0.0 , 1 , 1 );
+}
+
+.themeBorderless, .viewport {
+    -fx-background-color: #636363;
+}
+
+.menuBlock {
+    -fx-border-width: 1;
+    -fx-border-color: #98a5a3;
+    -fx-background-color: #636363;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.8) , 2, 0.0 , 1 , 1 );
+}
+
+#removeLayer {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/removeInactive.png");
+}
+
+#removeLayer:hover {
+    -fx-background-image: url("../images/removeActive.png");
+}
+
+
+.headers {
+    -fx-background-color: #4c4c4c;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.8) , 5, 0.0 , 0 , 2 );
+    -fx-border-width: 1;
+    -fx-border-color: #3a3a3a;
+}
+
+.workingArea {
+    -fx-focus-color: transparent;
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/background.png");
+}
+
+.workingArea .viewport {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.scene-background {
+    -fx-background-image: url("../images/scenebackground.png");
+}
+
+.drawingArea {
+    -fx-background-color: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 1 , 1 );
+}
+
+.color-picker {
+    -fx-background-color: transparent;
+}
+
+.tools {
+    -fx-background-color: transparent;
+}
+
+.tools:hover {
+    -fx-background-color: rgb(59, 156, 180);
+}
+
+.tools-focused {
+    -fx-background-color: rgb(62, 134, 160);
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 1 , 1 );
+}
+
+#bg-btn {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/settingInactive.png");
+}
+
+#bg-btn:hover {
+    -fx-background-image: url("../images/setting.png");
+}
+
+#saveImage {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/save-image-inactive.png");
+}
+
+#saveImage:hover, #saveImage:pressed {
+    -fx-background-image: url("../images/save-image-active.png");
+}
+
+.undo {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/undoInActive.png");
+}
+
+.undo:hover {
+    -fx-background-color: #636363;
+}
+
+.redo {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/redoInActive.png");
+}
+
+.redo:hover {
+    -fx-background-color: #636363;
+}
+
+.erase {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/eraseInactive.png");
+}
+
+.erase:hover {
+    -fx-background-image: url("../images/erase.png");
+}
+
+#copy {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/copyInActive.png");
+}
+
+#copy:hover, #copy:pressed {
+    -fx-background-image: url("../images/copy.png");
+}
+
+.save {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/save.png");
+}
+
+.load {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/load.png");
+}
+
+#import {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/import.png");
+}
+
+.save:hover, .load:hover, #import:hover {
+    -fx-background-color: #636363;
+}
+
+.grid {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/gridInactive.png");
+}
+
+.grid:hover {
+    -fx-background-image: url("../images/gridActive.png");
+}
+
+.grid-clicked {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/gridActive.png");
+}
+
+.grid-clicked:hover {
+    -fx-background-image: url("../images/gridInactive.png");
+}
+
+.layer {
+    -fx-border-radius: 3;
+    -fx-border-width: .5;
+    -fx-border-color: gainsboro;
+}
+
+.layer-label {
+    -fx-font-size: 16;
+    -fx-text-fill: #9be2f5;
+}
+
+.visible>.box {
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+}
+
+.visible>.box>.mark {
+    -fx-background-image: url("../images/invisible.png");
+    -fx-background-position: center;
+    -fx-background-repeat: stretch;
+    -fx-shape: none;
+    -fx-padding: 10;
+}
+
+.visible:selected>.box>.mark{
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/visible.png");
+}
+
+.select>.box {
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+}
+
+.select>.box>.mark {
+    -fx-background-image: url("../images/diselect.png");
+    -fx-background-position: center;
+    -fx-background-repeat: stretch;
+    -fx-shape: none;
+    -fx-padding: 10;
+}
+
+.select:selected>.box>.mark{
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/select.png");
+}
+
+.move .radio {
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 12;
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/unMove.png");
+}
+
+.move .radio:hover, .move:selected .radio {
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/inMove.png");
+}
+
+.move .radio .dot {
+    -fx-mark-color: transparent ;
+    -fx-background-color: transparent;
+}
+
+.scale .radio {
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 12;
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/unScale.png");
+}
+
+.scale .radio:hover, .scale:selected .radio {
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/inScale.png");
+}
+
+.scale .radio .dot {
+    -fx-mark-color: transparent ;
+    -fx-background-color: transparent;
+}
